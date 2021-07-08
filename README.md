@@ -5,5 +5,5 @@ Digger Remastered (Kotlin / Swing)
 ![Screenshot1](/wiki/screenshot1.png?raw=true)
 
 ## Build
-gradlew clean build
+gradlew clean build uberJar
 
