@@ -1,0 +1,19 @@
+internal class _monster {
+    var x = 0
+    var y = 0
+    var h = 0
+    var v = 0
+    var xr = 0
+    var yr = 0
+    var dir = 0
+    var hdir = 0
+    var t = 0
+    var hnt = 0
+    var death = 0
+    var bag = 0
+    var dtime = 0
+    var stime = 0
+    var flag = false
+    var nob = false
+    var alive = false
+}
