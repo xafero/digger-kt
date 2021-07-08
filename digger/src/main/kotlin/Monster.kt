@@ -82,7 +82,7 @@ internal class Monster(d: Digger) {
                 }
                 if (mondat[i].alive) if (mondat[i].t == 0) {
                     monai(i)
-                    if (dig.Main.randno(15 - dig.Main.levof10()) === 0 && mondat[i].nob) monai(i)
+                    if (dig.Main.randno(15 - dig.Main.levof10()) == 0 && mondat[i].nob) monai(i)
                 } else mondat[i].t-- else mondie(i)
             }
             i++
@@ -285,7 +285,7 @@ internal class Monster(d: Digger) {
             }
 
             /* Introduce a randno element on levels <6 : occasionally swap p1 and p3 */
-            if (dig.Main.randno(dig.Main.levof10() + 5) === 1 && dig.Main.levof10() < 6) {
+            if (dig.Main.randno(dig.Main.levof10() + 5) == 1 && dig.Main.levof10() < 6) {
                 t = mdirp1
                 mdirp1 = mdirp3
                 mdirp3 = t
@@ -370,7 +370,7 @@ internal class Monster(d: Digger) {
         }
 
         /* Check for collision with bag */
-        if (clbits and dig.Bags.bagbits() !== 0) {
+        if (clbits and dig.Bags.bagbits() != 0) {
             mondat[mon].t++ /* Time penalty */
             mongotgold = false
             if (mondat[mon].dir == 4 || mondat[mon].dir == 0) { /* Horizontal push */
@@ -412,7 +412,7 @@ internal class Monster(d: Digger) {
                 if (dig.Bags.bagy(mondat[mon].bag) + 6 > mondat[mon].y) mondat[mon].y = dig.Bags.bagy(mondat[mon].bag)
                 dig.Drawing.drawmondie(mon, mondat[mon].nob, mondat[mon].hdir, mondat[mon].x, mondat[mon].y)
                 dig.Main.incpenalty()
-                if (dig.Bags.getbagdir(mondat[mon].bag) === -1) {
+                if (dig.Bags.getbagdir(mondat[mon].bag) == -1) {
                     mondat[mon].dtime = 1
                     mondat[mon].death = 4
                 }

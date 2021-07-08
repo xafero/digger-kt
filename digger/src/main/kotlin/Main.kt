@@ -55,11 +55,11 @@ internal class Main(d: Digger) {
 
     fun calibrate() {
         dig.Sound.volume = (dig.Pc.getkips() / 291)
-        if (dig.Sound.volume === 0) dig.Sound.volume = 1
+        if (dig.Sound.volume == 0) dig.Sound.volume = 1
     }
 
     fun checklevdone() {
-        if ((dig.countem() === 0 || dig.Monster.monleft() === 0) && dig.digonscr) gamedat[curplayer].levdone =
+        if ((dig.countem() == 0 || dig.Monster.monleft() == 0) && dig.digonscr) gamedat[curplayer].levdone =
             true else gamedat[curplayer].levdone = false
     }
 
@@ -159,7 +159,7 @@ internal class Main(d: Digger) {
             dig.time = dig.Pc.gethrt()
             while (!start) {
                 start = dig.Input.teststart()
-                if (dig.Input.akeypressed === 27) { // esc
+                if (dig.Input.akeypressed == 27) { // esc
                     switchnplayers()
                     shownplayers()
                     dig.Input.akeypressed = 0
@@ -295,7 +295,7 @@ internal class Main(d: Digger) {
         dig.erasedigger()
         dig.Sound.musicoff()
         t = 20
-        while ((dig.Bags.getnmovingbags() !== 0 || t != 0) && !dig.Input.escape) {
+        while ((dig.Bags.getnmovingbags() != 0 || t != 0) && !dig.Input.escape) {
             if (t != 0) t--
             penalty = 0
             dig.Bags.dobags()
@@ -311,7 +311,7 @@ internal class Main(d: Digger) {
         dig.Monster.erasemonsters()
         dig.newframe()
         if (gamedat[curplayer].levdone) dig.Sound.soundlevdone()
-        if (dig.countem() === 0) {
+        if (dig.countem() == 0) {
             gamedat[curplayer].level++
             if (gamedat[curplayer].level > 1000) gamedat[curplayer].level = 1000
             initlevel()
@@ -352,7 +352,7 @@ internal class Main(d: Digger) {
     }
 
     fun testpause() {
-        if (dig.Input.akeypressed === 32) { /* Space bar */
+        if (dig.Input.akeypressed == 32) { /* Space bar */
             dig.Input.akeypressed = 0
             dig.Sound.soundpause()
             dig.Sound.sett2val(40)
@@ -366,7 +366,7 @@ internal class Main(d: Digger) {
                     Thread.sleep(50)
                 } catch (e: Exception) {
                 }
-                if (dig.Input.keypressed !== 0) break
+                if (dig.Input.keypressed != 0) break
             }
             cleartopline()
             dig.Scores.drawscores()

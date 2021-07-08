@@ -48,7 +48,7 @@ internal class Scores(d: Digger) {
     }
 
     fun addscore(score: Int) {
-        if (dig.Main.getcplayer() === 0) {
+        if (dig.Main.getcplayer() == 0) {
             score1 += score.toLong()
             if (score1 > 999999L) score1 = 0
             writenum(score1, 0, 0, 6, 1)
@@ -78,7 +78,7 @@ internal class Scores(d: Digger) {
 
     fun drawscores() {
         writenum(score1, 0, 0, 6, 3)
-        if (dig.Main.nplayers === 2) if (score2 < 100000L) writenum(score2, 236, 0, 6, 3) else writenum(
+        if (dig.Main.nplayers == 2) if (score2 < 100000L) writenum(score2, 236, 0, 6, 3) else writenum(
             score2,
             248,
             0,
@@ -92,12 +92,12 @@ internal class Scores(d: Digger) {
         var j: Int
         var z: Int
         addscore(0)
-        scoret = if (dig.Main.getcplayer() === 0) score1 else score2
+        scoret = if (dig.Main.getcplayer() == 0) score1 else score2
         if (scoret > scorehigh[11]) {
             dig.Pc.gclear()
             drawscores()
             dig.Main.pldispbuf = "PLAYER "
-            if (dig.Main.getcplayer() === 0) dig.Main.pldispbuf += "1" else dig.Main.pldispbuf += "2"
+            if (dig.Main.getcplayer() == 0) dig.Main.pldispbuf += "1" else dig.Main.pldispbuf += "2"
             dig.Drawing.outtext(dig.Main.pldispbuf, 108, 0, 2, true)
             dig.Drawing.outtext(" NEW HIGH SCORE ", 64, 40, 2, true)
             getinitials()
@@ -151,13 +151,13 @@ internal class Scores(d: Digger) {
         while (j < 5) {
             i = 0
             while (i < 40) {
-                if (dig.Input.keypressed and 0x80 === 0 && dig.Input.keypressed !== 0) return dig.Input.keypressed
+                if (dig.Input.keypressed and 0x80 == 0 && dig.Input.keypressed != 0) return dig.Input.keypressed
                 flashywait(15)
                 i++
             }
             i = 0
             while (i < 40) {
-                if (dig.Input.keypressed and 0x80 === 0 && dig.Input.keypressed !== 0) {
+                if (dig.Input.keypressed and 0x80 == 0 && dig.Input.keypressed != 0) {
                     dig.Pc.gwrite(x, y, '_'.toInt(), 3, true)
                     return dig.Input.keypressed
                 }
@@ -328,7 +328,7 @@ internal class Scores(d: Digger) {
     }
 
     fun writecurscore(bp6: Int) {
-        if (dig.Main.getcplayer() === 0) writenum(score1, 0, 0, 6, bp6) else if (score2 < 100000L) writenum(
+        if (dig.Main.getcplayer() == 0) writenum(score1, 0, 0, 6, bp6) else if (score2 < 100000L) writenum(
             score2,
             236,
             0,

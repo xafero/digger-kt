@@ -650,7 +650,7 @@ internal class Drawing(d: Digger) {
             n--
             l++
         }
-        if (dig.Main.nplayers === 2) {
+        if (dig.Main.nplayers == 2) {
             n = dig.Main.getlives(2) - 1
             l = 1
             while (l < 5) {
@@ -700,7 +700,7 @@ internal class Drawing(d: Digger) {
         while (x < 15) {
             y = 0
             while (y < 10) {
-                if (dig.Main.getcplayer() === 0) field[y * 15 + x] = field1[y * 15 + x] else field[y * 15 + x] =
+                if (dig.Main.getcplayer() == 0) field[y * 15 + x] = field1[y * 15 + x] else field[y * 15 + x] =
                     field2[y * 15 + x]
                 y++
             }
@@ -806,7 +806,7 @@ internal class Drawing(d: Digger) {
                 c = dig.Main.getlevch(x, y, dig.Main.levplan())
                 if (c == 'S'.toInt() || c == 'V'.toInt()) field[y * 15 + x] = field[y * 15 + x] and 0xd03f
                 if (c == 'S'.toInt() || c == 'H'.toInt()) field[y * 15 + x] = field[y * 15 + x] and 0xdfe0
-                if (dig.Main.getcplayer() === 0) field1[y * 15 + x] = field[y * 15 + x] else field2[y * 15 + x] =
+                if (dig.Main.getcplayer() == 0) field1[y * 15 + x] = field[y * 15 + x] else field2[y * 15 + x] =
                     field[y * 15 + x]
                 y++
             }
@@ -835,7 +835,7 @@ internal class Drawing(d: Digger) {
         while (x < 15) {
             y = 0
             while (y < 10) {
-                if (dig.Main.getcplayer() === 0) field1[y * 15 + x] = field[y * 15 + x] else field2[y * 15 + x] =
+                if (dig.Main.getcplayer() == 0) field1[y * 15 + x] = field[y * 15 + x] else field2[y * 15 + x] =
                     field[y * 15 + x]
                 y++
             }
